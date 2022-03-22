@@ -1,0 +1,61 @@
+$TextColor: #fff;
+$bgDesc: #474a50;
+
+.card_preview {
+  width: 20%;
+  height: 45vh;
+  // margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+
+  .flag_preview {
+    object-fit: cover;
+    height: 160px;
+    display: block;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  .country_description {
+    width: 100%;
+    background: $bgDesc;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding: 20px 0 30px;
+
+    .description_preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 5% 0 0;
+
+      .desc_title {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+        color: $TextColor;
+      }
+
+      .desc_subtitle {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 300;
+        color: $TextColor;
+        opacity: 0.7;
+      }
+    }
+
+    .name_preview {
+      color: $TextColor;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      text-align: center;
+    }
+
+    .text_display {
+      display: flex;
+      width: 70%;
+    }
+  }
+}

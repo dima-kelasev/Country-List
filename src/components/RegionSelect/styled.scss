@@ -1,0 +1,81 @@
+$TextColor: #fff;
+$bgFilter: #474a50;
+$hover: #38bebe;
+
+.filter_block {
+  padding: 10px 0;
+  background: $bgFilter;
+  width: 15%;
+  border-radius: 4px;
+  text-align: center;
+  position: relative;
+
+  .title {
+    color: $TextColor;
+    margin: 0;
+    font-size: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.8s;
+  }
+
+  .title::after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+  }
+
+  .title_active {
+    color: $TextColor;
+    margin: 0;
+    font-size: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.8s;
+  }
+
+  .title_active::after {
+    content: "▲";
+    position: absolute;
+    right: 10px;
+  }
+
+  .title_active:hover,
+  .title:hover {
+    color: $hover;
+    transition: 0.8s;
+  }
+
+  .dropDown {
+    display: none;
+    transition: 0.5s;
+  }
+
+  .dropDown_active {
+    background: $bgFilter;
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    border-radius: 4px;
+    padding: 10px 0;
+    display: block;
+    transition: 0.5s;
+
+    .region_list {
+      margin: 0;
+      list-style: none;
+      padding: 0;
+      color: $TextColor;
+
+      li {
+        margin: 5px 0;
+        cursor: pointer;
+        transition: 0.8s;
+      }
+      li:hover {
+        color: $hover;
+        transition: 0.8s;
+      }
+    }
+  }
+}

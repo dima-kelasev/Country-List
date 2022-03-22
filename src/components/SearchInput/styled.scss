@@ -1,0 +1,20 @@
+$TextColor: #fff;
+$bgDesc: #474a50;
+
+.search_input {
+  background: $bgDesc;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  color: $TextColor;
+  width: 30%;
+}
+
+.search_input::placeholder {
+  color: $TextColor;
+  font-size: 10px;
+}
+
+.search_input:focus {
+  outline: none;
+}
