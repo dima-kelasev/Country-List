@@ -8,7 +8,7 @@ export function App(): JSX.Element {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route exact path="country/:id" component={<CountryPage />} />
+        <Route path="/:id" children={<CountryPage />} />
       </Switch>
     </BrowserRouter>
   );

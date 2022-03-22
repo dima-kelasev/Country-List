@@ -2,6 +2,7 @@ import { CountriesType } from "../../types";
 import { Flag } from "./component/Flag";
 import "./styled.scss";
 import { BlockWithText } from "./component/BlockWithTextx";
+import { Link } from "react-router-dom";
 
 interface CardProps {
   card: CountriesType;
@@ -9,7 +10,7 @@ interface CardProps {
 
 export function Card({ card }: CardProps) {
   return (
-    <a href={`country/${card.name.common}`} className="card_preview">
+    <Link to={`${card.name.common}`} className="card_preview">
       <Flag url={card.flags.svg} alt={card.name.common} />
 
       <div className="country_description">
@@ -20,6 +21,6 @@ export function Card({ card }: CardProps) {
           <BlockWithText title="Capital" subtitle={card.capital} />
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
