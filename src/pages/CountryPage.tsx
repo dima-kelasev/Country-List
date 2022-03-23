@@ -9,7 +9,7 @@ import API from "../utils/api/index";
 import "../components/DescriptionCountryBlock/style.scss";
 import { Button } from "../components/Button";
 
-export function CountryPage() {
+export function CountryPage(): JSX.Element {
   const { id } = useParams<{ id?: string }>();
   const [data, setData] = useState<CountriesType[]>();
 

@@ -10,13 +10,9 @@ interface DescriptionCountryBlockProps {
 export function DescriptionCountryBlock({
   country,
 }: DescriptionCountryBlockProps) {
-  const currencies = country?.currencies;
-
-  console.log("currencies", currencies);
-
   return (
     <div className="description">
-      <h1>{country?.name.official}</h1>
+      <h1>{country?.name.common}</h1>
       <div className="description_text">
         <div>
           <Text title="Native Name" text={country?.name.common} />
@@ -38,7 +34,7 @@ export function DescriptionCountryBlock({
       <div className="borders">
         <Text title="Border Countries" text=" " />
         {country?.borders?.map((country) => (
-          <div className="border_box">
+          <div key={country} className="border_box">
             <Link to={country}>
               <Button text={country} />
             </Link>
