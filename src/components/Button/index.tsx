@@ -1,3 +1,5 @@
+import "./style.scss";
+
 interface ButtonProps {
   text: string;
   props?: JSX.IntrinsicAttributes;

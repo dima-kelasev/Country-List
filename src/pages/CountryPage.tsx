@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { DescriptionCountryBlock } from "../components/DescriptionCountryBlock";
 import { Spinner } from "../components/Spinner";
 import { CountriesType } from "../types";
 import API from "../utils/api/index";
 
 import "../components/DescriptionCountryBlock/style.scss";
-import { Button } from "../components/Buton";
+import { Button } from "../components/Button";
 
 export function CountryPage() {
   const { id } = useParams<{ id?: string }>();
@@ -28,8 +28,10 @@ export function CountryPage() {
 
   return (
     <>
-      <div>
-        <Button text="Back" />
+      <div className="button_box">
+        <Link to="/">
+          <Button text="Back" />
+        </Link>
       </div>
 
       <div className="country_display">

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { CountriesType } from "../../types";
+import { Button } from "../Button";
 import { Text } from "./Text";
 
 interface DescriptionCountryBlockProps {
@@ -8,23 +10,40 @@ interface DescriptionCountryBlockProps {
 export function DescriptionCountryBlock({
   country,
 }: DescriptionCountryBlockProps) {
+  const currencies = country?.currencies;
+
+  console.log("currencies", currencies);
+
   return (
     <div className="description">
-      <div>
-        <Text title="Native Name" text={country?.name.common} />
-        <Text title="Population" text={country?.population} />
-        <Text title="Region" text={country?.region} />
-        <Text title=" Sub Region" text={country?.subregion} />
+      <h1>{country?.name.official}</h1>
+      <div className="description_text">
+        <div>
+          <Text title="Native Name" text={country?.name.common} />
+          <Text title="Population" text={country?.population} />
+          <Text title="Region" text={country?.region} />
+          <Text title=" Sub Region" text={country?.subregion} />
+        </div>
+        <div>
+          <Text title="Capital" text={country?.capital} />
+          <Text
+            title="Top Level Domain"
+            // @ts-ignore: Unreachable code error
+            text={country?.tld?.map((name) => name)}
+          />
+          <Text title="Language" text={country?.languages.grn} />
+        </div>
       </div>
-      <div>
-        <Text title="Capital" text={country?.capital} />
-        <Text
-          title="Top Level Domain"
-          // @ts-ignore: Unreachable code error
-          text={country?.tld?.map((name) => name)}
-        />
-        <Text title="Currencies" text={country?.currencies?.PYG.name} />
-        <Text title=" Language" text={country?.languages.grn} />
+
+      <div className="borders">
+        <Text title="Border Countries" text=" " />
+        {country?.borders?.map((country) => (
+          <div className="border_box">
+            <Link to={country}>
+              <Button text={country} />
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );

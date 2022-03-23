@@ -23,7 +23,7 @@ interface CurrenciesType {
 }
 
 interface CurrenciesName {
-  PYG: CurrenciesType;
+  [name: string]: CurrenciesType;
 }
 
 interface LanguagesType {
@@ -34,6 +34,7 @@ interface LanguagesType {
 export type CountriesType = {
   population: number;
   name: CountryName;
+  borders?: string[];
   flags: FlagsType;
   fifa: string;
   region: string;
