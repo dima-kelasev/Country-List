@@ -8,6 +8,29 @@ interface FlagsType {
   png: string;
 }
 
+interface NativeName {
+  f: string;
+  m: string;
+}
+
+interface DomainName {
+  name: string;
+}
+
+interface CurrenciesType {
+  name: string;
+  symbol: string;
+}
+
+interface CurrenciesName {
+  PYG: CurrenciesType;
+}
+
+interface LanguagesType {
+  grn: string;
+  spa: string;
+}
+
 export type CountriesType = {
   population: number;
   name: CountryName;
@@ -15,4 +38,9 @@ export type CountriesType = {
   fifa: string;
   region: string;
   capital: string;
+  demonyms?: NativeName;
+  subregion?: string;
+  tld?: DomainName[];
+  currencies?: CurrenciesName;
+  languages: LanguagesType;
 };
