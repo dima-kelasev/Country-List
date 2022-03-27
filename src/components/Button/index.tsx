@@ -2,9 +2,13 @@ import "./style.scss";
 
 interface ButtonProps {
   text: string;
-  props?: JSX.IntrinsicAttributes;
+  onClick?: () => void;
 }
 
-export function Button({ text }: ButtonProps) {
-  return <button className="button">{text}</button>;
+export function Button({ text, onClick }: ButtonProps) {
+  return (
+    <button onClick={onClick} className="button">
+      {text}
+    </button>
+  );
 }

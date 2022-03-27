@@ -1,0 +1,11 @@
+$textColor: #fff;
+
+.crumbs_box {
+  margin: 2% auto 0;
+
+  .crumbs {
+    color: $textColor;
+    font-weight: 700;
+    letter-spacing: 5px;
+  }
+}

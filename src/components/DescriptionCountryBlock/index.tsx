@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams, useRouteMatch } from "react-router-dom";
 import { CountriesType } from "../../types";
 import { Button } from "../Button";
 import { Text } from "./Text";
@@ -10,6 +10,10 @@ interface DescriptionCountryBlockProps {
 export function DescriptionCountryBlock({
   country,
 }: DescriptionCountryBlockProps) {
+  const params = useRouteMatch();
+  const { pathname } = useLocation();
+
+  // console.log("pathname", pathname);
   return (
     <div className="description">
       <h1>{country?.name.common}</h1>
