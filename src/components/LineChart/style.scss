@@ -1,0 +1,32 @@
+$colorText: #fff;
+
+.diagram_box {
+  margin: 7% 0;
+
+  .data_time_box {
+    width: 98% !important;
+  }
+
+  .description {
+    margin: 0;
+    color: $colorText;
+    font-weight: 300;
+    opacity: 0.5;
+  }
+
+  .data_box {
+    display: flex;
+    width: 97%;
+    justify-content: space-between;
+
+    .data {
+      margin: 0 0 5px;
+      color: $colorText;
+      font-weight: 600;
+    }
+
+    .time {
+      margin-right: 2.45%;
+    }
+  }
+}

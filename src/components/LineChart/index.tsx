@@ -1,39 +1,58 @@
+import { useEffect, useState } from "react";
+import { APIKEY, arrayX } from "../../constants";
+import { WeatherType } from "../../types";
+import { generatePolylineArray } from "../../utils";
+import API from "../../utils/api/weatherAPI";
+
+import "./style.scss";
+
 interface LineChartProps {
-  arrayY?: number[];
+  capital?: string;
 }
 
-export function LineChart({ arrayY }: LineChartProps) {
-  const arrayX = [
-    0, 41.5, 83, 124.5, 166, 207.5, 249, 290.5, 332, 373.5, 415, 456.5, 498,
-    539.5, 581, 622.5, 664, 705.5, 747, 788.5, 830, 871.5, 913, 954.5,
-  ];
-  function generatePolylineArray() {
-    let polyline = "";
-    arrayX.map((coordX, i) => (polyline += `${coordX}, ${arrayY?.[i]} `));
-    return polyline;
-  }
+export function LineChart({ capital }: LineChartProps) {
+  const [weather, setWeather] = useState<WeatherType>();
 
-  const polyline = generatePolylineArray();
+  useEffect(() => {
+    API.get(
+      `forecast.json?key=${APIKEY}&q=${capital}&days=1&aqi=no&alerts=no`
+    ).then((res) => {
+      const data = res.data;
+      setWeather(data);
+    });
+  }, [capital]);
 
-  console.log("polyline", polyline);
+  const arrayY = weather?.forecast.forecastday[0].hour.map((day) => day.temp_c);
+
+  const hour = weather?.forecast.forecastday?.[0].hour;
+
+  const polyline = generatePolylineArray(arrayX, arrayY);
+
   return (
-    <>
-      <svg
-        x="200px"
-        y="100px"
-        viewBox="0 0 1000 2"
-        style={{ height: "50px", width: "100%" }}
-      >
+    <div className="diagram_box">
+      <div className="data_box">
+        {hour?.map((hour) => (
+          <p className="data">{hour.temp_c}</p>
+        ))}
+      </div>
+      <p className="description">temperature °</p>
+      <svg x="0px" y="0px" viewBox="0 0 1000 2" height="200" width="100%">
         <polyline
           points={polyline}
           style={{ background: "white" }}
           stroke="#fff"
-          stroke-width="4"
+          strokeWidth="4"
         />
         {arrayX.map((coordX, i) => (
-          <circle key={i} cx={coordX} cy={arrayY?.[i]} r={4} fill="#fff" />
+          <circle key={i} cx={coordX} cy={arrayY?.[i]} r={5} fill="#fff" />
         ))}
       </svg>
-    </>
+      <div className="data_box data_time_box">
+        {hour?.map((hour) => (
+          <p className="data time">{hour.time.slice(11, 13)}</p>
+        ))}
+      </div>
+      <p className="description">Hour's</p>
+    </div>
   );
 }

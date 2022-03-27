@@ -15,7 +15,7 @@ import "../components/DescriptionCountryBlock/style.scss";
 import { Button } from "../components/Button";
 import { BreadCrumbsContext } from "../Context/BreadCrumbsContext";
 import { BreadCrumbs } from "../components/BreadCrumb";
-import axios from "axios";
+import { LineChart } from "../components/LineChart";
 
 export function CountryPage(): JSX.Element {
   const { id } = useParams<{ id?: string }>();
@@ -55,6 +55,7 @@ export function CountryPage(): JSX.Element {
           />
           <DescriptionCountryBlock country={country} />
         </div>
+        <LineChart capital={country?.capital} />
       </div>
     </>
   );

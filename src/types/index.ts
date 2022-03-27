@@ -45,3 +45,36 @@ export type CountriesType = {
   currencies?: CurrenciesName;
   languages: LanguagesType;
 };
+
+interface Location {
+  country: string;
+  localtime: string;
+  name: string;
+  tz_id: string;
+}
+
+interface ConditionType {
+  icon: string;
+  text: string;
+}
+
+interface HourType {
+  temp_c: number;
+  time: string;
+  condition: ConditionType;
+}
+
+interface ForecastDayType {
+  date: string;
+  hour: HourType[];
+}
+
+interface ForecastDay {
+  forecastday: ForecastDayType[];
+}
+
+export interface WeatherType {
+  current: [];
+  forecast: ForecastDay;
+  location: Location;
+}
