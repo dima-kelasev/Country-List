@@ -20,16 +20,11 @@ import axios from "axios";
 export function CountryPage(): JSX.Element {
   const { id } = useParams<{ id?: string }>();
   const [data, setData] = useState<CountriesType[]>();
+
   const { pathname } = useLocation();
   const history = useHistory();
   const { crumbs } = useContext(BreadCrumbsContext);
   const params = useRouteMatch();
-
-  console.log("id", id);
-
-  const APIKEY = "e0885939d5524e7486a103123222703";
-
-  // console.log("id", history);
 
   useEffect(() => {
     API.get(`name/${id}`)
@@ -38,12 +33,6 @@ export function CountryPage(): JSX.Element {
         setData(data);
       })
       .catch((error) => console.log(error));
-
-    axios
-      .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${id}&days=1&aqi=no&alerts=no`
-      )
-      .then((res) => console.log(res));
   }, [id]);
 
   const country = data?.[0];
