@@ -58,7 +58,7 @@ export function DescriptionCountryBlock({
         <div className="borders_block">
           {country?.borders?.map((country) => (
             <div key={country} className="border_box">
-              <Link to={country} onClick={() => getByCode(country)}>
+              <Link to={country}>
                 <Button text={country} />
               </Link>
             </div>
