@@ -6,6 +6,7 @@ import API from "../../utils/api/weatherAPI";
 import { Spinner } from "../Spinner";
 
 import "./style.scss";
+import { CurrentForecast } from "./CurrentForecast";
 
 interface LineChartProps {
   capital?: string;
@@ -29,11 +30,15 @@ export function LineChart({ capital }: LineChartProps) {
 
   return (
     <>
+      {weather?.current.condition.icon && <CurrentForecast data={weather} />}
+
       {hour ? (
         <div className="diagram_box">
           <div className="data_box data_time_box">
-            {hour?.map((hour) => (
-              <p className="data time">{hour.time.slice(11, 13)}</p>
+            {hour?.map((hour, i) => (
+              <p key={i} className="data time">
+                {hour.time.slice(11, 13)}
+              </p>
             ))}
           </div>
           <p className="description">Hour's</p>
@@ -42,15 +47,15 @@ export function LineChart({ capital }: LineChartProps) {
               points={polyline}
               style={{ background: "white" }}
               stroke="#fff"
-              strokeWidth="4"
+              strokeWidth="5"
             />
             {arrayX.map((coordX, i) => (
-              <circle key={i} cx={coordX} cy={arrayY?.[i]} r={5} fill="#fff" />
+              <circle key={i} cx={coordX} r={6} cy={arrayY?.[i]} fill="#fff" />
             ))}
           </svg>
           <div className="data_box">
-            {hour?.map((hour) => (
-              <p className="data">{`${hour.temp_c}°`}</p>
+            {hour?.map((hour, i) => (
+              <p key={i} className="data">{`${hour.temp_c}°`}</p>
             ))}
           </div>
           <p className="description">temperature °</p>

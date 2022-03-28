@@ -27,7 +27,7 @@ export function CountryPage(): JSX.Element {
   const params = useRouteMatch();
 
   useEffect(() => {
-    API.get(`name/${id}`)
+    API.get(`alpha/${id}`)
       .then((res) => {
         const data = res.data;
         setData(data);

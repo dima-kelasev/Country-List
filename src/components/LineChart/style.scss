@@ -31,3 +31,19 @@ $colorText: #fff;
     }
   }
 }
+
+.forecast_now {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+
+  .forecast_text {
+    color: $colorText;
+    font-weight: 600;
+
+    span {
+      opacity: 0.5;
+      font-weight: 300;
+    }
+  }
+}

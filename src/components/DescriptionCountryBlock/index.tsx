@@ -2,6 +2,8 @@ import { Link, useLocation, useRouteMatch } from "react-router-dom";
 import { CountriesType } from "../../types";
 import { Button } from "../Button";
 import { Text } from "./Text";
+import API from "../../utils/api/index";
+import { AxiosResponse } from "axios";
 
 interface DescriptionCountryBlockProps {
   country?: CountriesType;
@@ -12,6 +14,23 @@ export function DescriptionCountryBlock({
 }: DescriptionCountryBlockProps) {
   const params = useRouteMatch();
   const { pathname } = useLocation();
+
+  // var headers = new Headers();
+  // headers.append("X-CSCAPI-KEY", "API_KEY");
+
+  // const requestOptions: any = {
+  //   method: "GET",
+  //   headers: headers,
+  //   redirect: "follow",
+  // };
+
+  // fetch(
+  //   "https://api.countrystatecity.in/v1/countries/IN/cities",
+  //   requestOptions
+  // )
+  //   .then((response) => response.text())
+  //   .then((result) => console.log(result))
+  //   .catch((error) => console.log("error", error));
 
   return (
     <div className="description">
@@ -39,7 +58,7 @@ export function DescriptionCountryBlock({
         <div className="borders_block">
           {country?.borders?.map((country) => (
             <div key={country} className="border_box">
-              <Link to={country}>
+              <Link to={country} onClick={() => getByCode(country)}>
                 <Button text={country} />
               </Link>
             </div>

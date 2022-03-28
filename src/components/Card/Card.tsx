@@ -10,7 +10,7 @@ interface CardProps {
 
 export function Card({ card }: CardProps) {
   return (
-    <Link to={`${card.name.common}`} className="card_preview">
+    <Link to={`${card.cca3}`} className="card_preview">
       <Flag url={card.flags.svg} alt={card.name.common} />
 
       <div className="country_description">

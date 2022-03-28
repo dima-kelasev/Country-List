@@ -44,6 +44,7 @@ export type CountriesType = {
   tld?: DomainName[];
   currencies?: CurrenciesName;
   languages: LanguagesType;
+  cca3: string;
 };
 
 interface Location {
@@ -73,8 +74,20 @@ interface ForecastDay {
   forecastday: ForecastDayType[];
 }
 
+interface Condition {
+  code: number;
+  icon: string;
+  text: string;
+}
+
+interface Current {
+  condition: Condition;
+  temp_c: number;
+  feelslike_c: number;
+}
+
 export interface WeatherType {
-  current: [];
+  current: Current;
   forecast: ForecastDay;
   location: Location;
 }
