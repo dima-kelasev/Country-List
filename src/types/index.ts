@@ -84,6 +84,7 @@ interface Current {
   condition: Condition;
   temp_c: number;
   feelslike_c: number;
+  gust_kph: number;
 }
 
 export interface WeatherType {

@@ -2,20 +2,21 @@ import "./style/index.scss";
 import { Main } from "./pages/Main";
 import { CountryPage } from "./pages/CountryPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { BreadCrumbsContext } from "./Context/BreadCrumbsContext";
+import { AppContext } from "./Context/AppContext";
 
 export function App(): JSX.Element {
+  const value = {
+    crumbs: [],
+    capital: [],
+  };
+
   return (
     <BrowserRouter>
       <Switch>
-        <BreadCrumbsContext.Provider
-          value={{
-            crumbs: [],
-          }}
-        >
+        <AppContext.Provider value={value}>
           <Route exact path="/" component={Main} />
           <Route path="/:id" children={<CountryPage />} />
-        </BreadCrumbsContext.Provider>
+        </AppContext.Provider>
       </Switch>
     </BrowserRouter>
   );
