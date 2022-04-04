@@ -85,6 +85,8 @@ interface Current {
   temp_c: number;
   feelslike_c: number;
   gust_kph: number;
+  wind_dir: string;
+  wind_mph: number;
 }
 
 export interface WeatherType {

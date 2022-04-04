@@ -12,7 +12,7 @@ export function CurrentForecast({ data }: CurrentForecastProps) {
         title="Fells Like"
         text={
           data.current.feelslike_c < 0
-            ? ` - ${data.current.feelslike_c}`
+            ? `  ${data.current.feelslike_c}`
             : ` + ${data.current.feelslike_c}`
         }
       />
@@ -20,7 +20,7 @@ export function CurrentForecast({ data }: CurrentForecastProps) {
         title="Temperature"
         text={
           data.current.temp_c < 0
-            ? ` - ${data.current.temp_c}`
+            ? `  ${data.current.temp_c}`
             : ` + ${data.current.temp_c}`
         }
       />

@@ -83,15 +83,15 @@ export function Capitals({ capitals }: CapitalsProps) {
             <tr>
               <th>Capital</th>
               <th>t°</th>
-              <th>Wind</th>
-              <th>Condition</th>
+              <th>Wind mp/h</th>
+              <th>Direction</th>
               <th></th>
             </tr>
             <tr>
               <th>{randomCapital.location.name}</th>
               <td>{randomCapital.current.temp_c}</td>
-              <td>{randomCapital.current.gust_kph}</td>
-              <td>{randomCapital.current.condition.text}</td>
+              <td>{randomCapital.current.wind_mph}</td>
+              <td>{randomCapital.current.wind_dir}</td>
               <th>
                 <img
                   src={randomCapital?.current.condition.icon}
@@ -102,8 +102,8 @@ export function Capitals({ capitals }: CapitalsProps) {
             <tr>
               <th>{randomCapital1?.location.name}</th>
               <td>{randomCapital1?.current.temp_c}</td>
-              <td>{randomCapital1?.current.gust_kph}</td>
-              <td>{randomCapital1?.current.condition.text}</td>
+              <td>{randomCapital1?.current.wind_mph}</td>
+              <td>{randomCapital1?.current.wind_dir}</td>
               <th>
                 <img
                   src={randomCapital1?.current.condition.icon}
@@ -114,8 +114,8 @@ export function Capitals({ capitals }: CapitalsProps) {
             <tr>
               <th>{randomCapital2?.location.name}</th>
               <td>{randomCapital2?.current.temp_c}</td>
-              <td>{randomCapital2?.current.gust_kph}</td>
-              <td>{randomCapital2?.current.condition.text}</td>
+              <td>{randomCapital2?.current.wind_mph}</td>
+              <td>{randomCapital2?.current.wind_dir}</td>
               <th>
                 <img
                   src={randomCapital2?.current.condition.icon}
@@ -126,8 +126,8 @@ export function Capitals({ capitals }: CapitalsProps) {
             <tr>
               <th>{randomCapital3?.location.name}</th>
               <td>{randomCapital3?.current.temp_c}</td>
-              <td>{randomCapital3?.current.gust_kph}</td>
-              <td>{randomCapital3?.current.condition.text}</td>
+              <td>{randomCapital3?.current.wind_mph}</td>
+              <td>{randomCapital3?.current.wind_dir}</td>
               <th>
                 <img
                   src={randomCapital3?.current.condition.icon}
@@ -138,8 +138,8 @@ export function Capitals({ capitals }: CapitalsProps) {
             <tr>
               <th>{randomCapital4?.location.name}</th>
               <td>{randomCapital4?.current.temp_c}</td>
-              <td>{randomCapital4?.current.gust_kph}</td>
-              <td>{randomCapital4?.current.condition.text}</td>
+              <td>{randomCapital4?.current.wind_mph}</td>
+              <td>{randomCapital4?.current.wind_dir}</td>
               <th>
                 <img
                   src={randomCapital4?.current.condition.icon}
