@@ -1,4 +1,7 @@
-import { CountriesType } from "../types";
+import { CountriesType, WeatherType } from "../types";
+import APIWeather from "../utils/api/weatherAPI";
+import API from "../utils/api/index";
+import { APIKEY } from "../constants";
 
 export function generatePolylineArray(arrayX: number[], arrayY?: number[]) {
   let polyline = "";
@@ -23,3 +26,27 @@ export const getRandomBoats = (
 
   return result;
 };
+
+export async function fetchCapitalData(capital: string): Promise<WeatherType> {
+  const response = await APIWeather.get(
+    `forecast.json?key=${APIKEY}&q=${capital}`
+  ).then((res) => {
+    return res.data;
+  });
+  return response;
+}
+
+export async function CapitalList(setCapitals: (value: string[]) => void) {
+  const result = await API.get("all").then((res) => {
+    const data = res.data;
+    if (data) {
+      const random = getRandomBoats(data, 5);
+      const randomCapital: string[] = random.map(({ capital }) =>
+        capital.toString()
+      );
+
+      setCapitals(randomCapital);
+    }
+  });
+  return result;
+}

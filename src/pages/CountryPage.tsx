@@ -2,19 +2,20 @@ import { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { DescriptionCountryBlock } from "../components/DescriptionCountryBlock";
 import { Spinner } from "../components/Spinner";
-import { CountriesType } from "../types";
+import { CountriesType, WeatherType } from "../types";
 import API from "../utils/api/index";
-
-import "../components/DescriptionCountryBlock/style.scss";
+import { CapitalList, fetchCapitalData } from "../utils/index";
 import { Button } from "../components/Button";
 import { BreadCrumbs } from "../components/BreadCrumb";
 import { LineChart } from "../components/LineChart";
-import { getRandomBoats } from "../utils";
 import { Capitals } from "../components/Capitals";
+
+import "../components/DescriptionCountryBlock/style.scss";
 
 export function CountryPage(): JSX.Element {
   const [data, setData] = useState<CountriesType[]>();
   const [capitals, setCapitals] = useState<string[]>([]);
+  const [capitalData, setCapitalData] = useState<WeatherType[]>([]);
 
   const { pathname } = useLocation();
   const history = useHistory();
@@ -30,23 +31,23 @@ export function CountryPage(): JSX.Element {
         setData(data);
       })
       .catch((error) => console.log(error));
-
-    async function fetchCapital() {
-      const result = await API.get("all").then((res) => {
-        const data = res.data;
-        if (data) {
-          const randomBoats = getRandomBoats(data, 5);
-          const randomCapital: string[] = randomBoats.map(({ capital }) =>
-            capital.toString()
-          );
-
-          setCapitals(randomCapital);
-        }
-      });
-      return result;
-    }
-    fetchCapital();
   }, [countryCode]);
+
+  useEffect(() => {
+    CapitalList(setCapitals);
+  }, []);
+
+  useEffect(() => {
+    if (capitals.length) {
+      const a: WeatherType[] = [];
+      capitals.forEach((capital) => {
+        fetchCapitalData(capital).then((res) => {
+          a.push(res);
+          setCapitalData(a);
+        });
+      });
+    }
+  }, [capitals]);
 
   if (!data) return <Spinner />;
 
@@ -67,7 +68,7 @@ export function CountryPage(): JSX.Element {
           <DescriptionCountryBlock country={country} />
         </div>
         <LineChart capital={country?.capital} />
-        <Capitals capitals={capitals} />
+        <Capitals capitals={capitalData} />
       </div>
     </>
   );
