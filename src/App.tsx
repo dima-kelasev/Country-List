@@ -1,8 +1,9 @@
-import "./style/index.scss";
 import { Main } from "./pages/Main";
 import { CountryPage } from "./pages/CountryPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { AppContext } from "./Context/AppContext";
+
+import "./style/index.scss";
 
 export function App(): JSX.Element {
   const value = {

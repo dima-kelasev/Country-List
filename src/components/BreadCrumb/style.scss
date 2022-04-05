@@ -1,4 +1,5 @@
 $textColor: #fff;
+$hover: #38bebe;
 
 .crumbs_box {
   margin: 2% auto 0;
@@ -7,5 +8,12 @@ $textColor: #fff;
     color: $textColor;
     font-weight: 700;
     letter-spacing: 5px;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+
+  .crumbs:hover {
+    color: $hover;
+    transition: 0.5s;
   }
 }

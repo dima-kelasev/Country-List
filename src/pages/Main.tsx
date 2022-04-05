@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../components/Card/Card";
 import { CountriesType } from "../types";
-import "../style/index.scss";
-
 import API from "../utils/api/index";
 import { SearchAndSelectBar } from "../components/SerachAndSelectBar.tsx";
 import { Spinner } from "../components/Spinner";
+
+import "../style/index.scss";
 
 export function Main() {
   const [countries, setCountries] = useState<CountriesType[]>([]);

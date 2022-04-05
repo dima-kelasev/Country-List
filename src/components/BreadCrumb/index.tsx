@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom";
 import "./style.scss";
 
 interface BreadCrumbsProps {
@@ -5,9 +6,17 @@ interface BreadCrumbsProps {
 }
 
 export function BreadCrumbs({ crumbs }: BreadCrumbsProps) {
+  const { pathname } = useLocation();
+  const crumbsLink = crumbs.split("/");
+
+  console.log("crumbsLink", crumbsLink);
   return (
     <div className="crumbs_box">
-      <p className="crumbs">{crumbs}</p>
+      {crumbsLink.map((crumbs) => (
+        <Link className="crumbs" to={`${pathname}/${crumbs}`}>
+          {crumbs}/
+        </Link>
+      ))}
     </div>
   );
 }

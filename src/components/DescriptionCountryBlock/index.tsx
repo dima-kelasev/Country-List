@@ -1,4 +1,4 @@
-import { Link, useLocation, useRouteMatch } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CountriesType } from "../../types";
 import { Button } from "../Button";
 import { Text } from "./Text";
@@ -10,7 +10,6 @@ interface DescriptionCountryBlockProps {
 export function DescriptionCountryBlock({
   country,
 }: DescriptionCountryBlockProps) {
-  const params = useRouteMatch();
   const { pathname } = useLocation();
 
   return (
@@ -39,7 +38,7 @@ export function DescriptionCountryBlock({
         <div className="borders_block">
           {country?.borders?.map((country) => (
             <div key={country} className="border_box">
-              <Link to={country}>
+              <Link to={`${pathname}/${country}`}>
                 <Button text={country} />
               </Link>
             </div>

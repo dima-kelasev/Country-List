@@ -1,11 +1,5 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import {
-  useHistory,
-  useLocation,
-  useParams,
-  useRouteMatch,
-} from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import { DescriptionCountryBlock } from "../components/DescriptionCountryBlock";
 import { Spinner } from "../components/Spinner";
 import { CountriesType } from "../types";
@@ -19,18 +13,18 @@ import { getRandomBoats } from "../utils";
 import { Capitals } from "../components/Capitals";
 
 export function CountryPage(): JSX.Element {
-  const { id } = useParams<{ id?: string }>();
   const [data, setData] = useState<CountriesType[]>();
   const [capitals, setCapitals] = useState<string[]>([]);
 
   const { pathname } = useLocation();
   const history = useHistory();
-  const params = useRouteMatch();
+
+  const countryCode = pathname.split("/").slice(-1).toString();
 
   const country = data?.[0];
 
   useEffect(() => {
-    API.get(`alpha/${id}`)
+    API.get(`alpha/${countryCode}`)
       .then((res) => {
         const data = res.data;
         setData(data);
@@ -52,7 +46,7 @@ export function CountryPage(): JSX.Element {
       return result;
     }
     fetchCapital();
-  }, [id]);
+  }, [countryCode]);
 
   if (!data) return <Spinner />;
 
