@@ -1,7 +1,21 @@
+@import "../../style//breakPoints.scss";
+
 .nav_bar {
   width: 90%;
   margin: 0 auto;
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: $xxl) {
+  .nav_bar {
+    max-width: 1400px;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .nav_bar {
+    flex-direction: column;
+  }
 }

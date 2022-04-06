@@ -1,3 +1,5 @@
+@import "../../style/breakPoints.scss";
+
 $TextColor: #fff;
 $bgFilter: #474a50;
 $hover: #38bebe;
@@ -40,10 +42,9 @@ $hover: #38bebe;
     right: 10px;
   }
 
-  .title_active:hover,
-  .title:hover {
-    color: $hover;
-    transition: 0.8s;
+  .title_active:focus-visible,
+  .title:focus-visible {
+    outline: none;
   }
 
   .dropDown {
@@ -76,6 +77,29 @@ $hover: #38bebe;
         color: $hover;
         transition: 0.8s;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: $xl) {
+  .filter_block {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  .filter_block {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .filter_block {
+    width: 50%;
+    padding: 20px 0;
+
+    .dropDown_active {
+      top: 60px;
     }
   }
 }

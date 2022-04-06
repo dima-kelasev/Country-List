@@ -1,3 +1,5 @@
+@import "../../style/breakPoints.scss";
+
 $textColor: #fff;
 
 .country_display {
@@ -7,6 +9,7 @@ $textColor: #fff;
 
   .main_flag {
     width: 50%;
+    object-fit: cover;
   }
 
   .description {
@@ -43,6 +46,57 @@ $textColor: #fff;
         flex-wrap: wrap;
         gap: 10px;
         width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $xl) {
+  .country_display {
+    justify-content: space-between;
+    .description {
+      width: 40%;
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  .country_display {
+    display: block;
+    .main_flag {
+      width: 100%;
+    }
+    .description {
+      width: 100%;
+      .borders {
+        width: 100%;
+        justify-content: center;
+        .borders_block {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .country_display {
+    display: block;
+    .main_flag {
+      width: 100%;
+    }
+    .description {
+      align-items: start;
+      .description_text {
+        align-items: start;
+        flex-direction: column;
+      }
+      .borders {
+        width: 100%;
+        justify-content: start;
+        .borders_block {
+          justify-content: start;
+        }
       }
     }
   }

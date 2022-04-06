@@ -1,8 +1,13 @@
+@import "../../style/breakPoints.scss";
+
 $textColor: #fff;
 $hover: #38bebe;
 
 .crumbs_box {
   margin: 2% auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
 
   .crumbs {
     color: $textColor;
@@ -15,5 +20,11 @@ $hover: #38bebe;
   .crumbs:hover {
     color: $hover;
     transition: 0.5s;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .crumbs_box {
+    margin: 7% auto;
   }
 }

@@ -1,3 +1,5 @@
+@import "../../style/breakPoints.scss";
+
 $TextColor: #fff;
 $bgHeader: #3c404a;
 
@@ -12,5 +14,11 @@ $bgHeader: #3c404a;
     font-weight: 600;
     width: 90%;
     margin: 20px auto;
+  }
+}
+
+@media only screen and (min-width: $xxl) {
+  .header_title {
+    max-width: 1400px;
   }
 }

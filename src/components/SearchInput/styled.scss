@@ -1,3 +1,5 @@
+@import "../../style/breakPoints.scss";
+
 $TextColor: #fff;
 $bgDesc: #474a50;
 
@@ -17,4 +19,18 @@ $bgDesc: #474a50;
 
 .search_input:focus {
   outline: none;
+}
+
+@media only screen and (max-width: $md) {
+  .search_input {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .search_input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+  }
 }

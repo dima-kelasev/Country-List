@@ -9,6 +9,30 @@ $textColor: #fff;
       text-align: center;
       color: $textColor;
     }
+
+    .table_title {
+      color: $textColor;
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+    }
+
+    .capital_list {
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+      color: $textColor;
+
+      p {
+        font-weight: 600;
+        width: 14%;
+        text-align: left;
+
+        span {
+          font-weight: 300;
+        }
+      }
+    }
   }
 
   .table_box {

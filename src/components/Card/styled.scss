@@ -1,10 +1,10 @@
+@import "../../style/breakPoints.scss";
+
 $TextColor: #fff;
 $bgDesc: #474a50;
 
 .card_preview {
   width: 20%;
-  height: 45vh;
-  // margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -57,6 +57,44 @@ $bgDesc: #474a50;
     .text_display {
       display: flex;
       width: 70%;
+    }
+  }
+}
+
+@media only screen and (max-width: $xl) {
+  .card_preview {
+    width: 30%;
+  }
+}
+
+@media only screen and (max-width: $md) {
+  .card_preview {
+    width: 46%;
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .card_preview {
+    width: 100%;
+    height: auto;
+
+    .flag_preview {
+      height: auto;
+    }
+
+    .country_description {
+      .name_preview {
+        font-size: 30px;
+      }
+      .description_preview {
+        .desc_title {
+          font-size: 20px;
+        }
+
+        .desc_subtitle {
+          font-size: 20px;
+        }
+      }
     }
   }
 }

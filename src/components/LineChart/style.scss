@@ -1,3 +1,5 @@
+@import "../../style/breakPoints.scss";
+
 $colorText: #fff;
 
 .diagram_box {
@@ -44,6 +46,25 @@ $colorText: #fff;
     span {
       opacity: 0.5;
       font-weight: 300;
+    }
+  }
+}
+
+@media only screen and (max-width: $md) {
+  .forecast_now {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .diagram_box {
+    .data_box {
+      .data {
+        font-size: 10px;
+      }
+      .time {
+        margin-right: 0;
+        font-size: 14px;
+      }
     }
   }
 }
