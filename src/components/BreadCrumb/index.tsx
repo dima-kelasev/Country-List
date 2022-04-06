@@ -11,6 +11,9 @@ export function BreadCrumbs({ crumbs }: BreadCrumbsProps) {
 
   return (
     <div className="crumbs_box">
+      <Link className="crumbs" to="/">
+        HOME
+      </Link>
       {crumbsLink.map((crumbs) => (
         <Link key={crumbs} className="crumbs" to={`${pathname}/${crumbs}`}>
           {crumbs}/
