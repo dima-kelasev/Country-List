@@ -39,17 +39,18 @@ export function CountryPage(): JSX.Element {
 
   useEffect(() => {
     if (capitals.length) {
-      const a: WeatherType[] = [];
+      const initialsCapitals: WeatherType[] = [];
       capitals.forEach((capital) => {
         fetchCapitalData(capital).then((res) => {
-          a.push(res);
-          setCapitalData(a);
+          initialsCapitals.push(res);
+          setCapitalData(initialsCapitals);
         });
       });
+      setCapitalData(initialsCapitals);
     }
   }, [capitals]);
 
-  if (!data) return <Spinner />;
+  if (!country) return <Spinner />;
 
   return (
     <>
@@ -62,8 +63,8 @@ export function CountryPage(): JSX.Element {
         <div className="country_display">
           <img
             className="main_flag"
-            src={country?.flags.svg}
-            alt={country?.demonyms?.f}
+            src={country.flags.svg}
+            alt={country.name.common}
           />
           <DescriptionCountryBlock country={country} />
         </div>
