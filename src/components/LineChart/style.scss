@@ -6,7 +6,7 @@ $colorText: #fff;
   margin: 7% 0;
 
   .data_time_box {
-    width: 98% !important;
+    width: 98%;
   }
 
   .description {
@@ -64,6 +64,20 @@ $colorText: #fff;
       .time {
         margin-right: 0;
         font-size: 14px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $sm) {
+  .diagram_box {
+    .data_box {
+      .data {
+        font-size: 7px;
+      }
+      .time {
+        margin-right: 0;
+        font-size: 12px;
       }
     }
   }
