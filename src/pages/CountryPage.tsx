@@ -39,14 +39,13 @@ export function CountryPage(): JSX.Element {
 
   useEffect(() => {
     if (capitals.length) {
-      const initialsCapitals: WeatherType[] = [];
-      capitals.forEach((capital) => {
-        fetchCapitalData(capital).then((res) => {
-          initialsCapitals.push(res);
-          setCapitalData(initialsCapitals);
-        });
+      Promise.all(
+        capitals.map((capital) => {
+          return fetchCapitalData(capital);
+        })
+      ).then((response) => {
+        setCapitalData(response);
       });
-      setCapitalData(initialsCapitals);
     }
   }, [capitals]);
 

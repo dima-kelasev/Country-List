@@ -28,7 +28,7 @@ export const getRandomBoats = (
 };
 
 export async function fetchCapitalData(capital: string): Promise<WeatherType> {
-  const response = await APIWeather.get(
+  const response = await APIWeather.get<WeatherType>(
     `forecast.json?key=${APIKEY}&q=${capital}`
   ).then((res) => {
     return res.data;
