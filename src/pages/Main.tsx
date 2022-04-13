@@ -22,21 +22,24 @@ export function Main() {
 
   return (
     <>
-      <SearchAndSelectBar
-        value={searchTerms}
-        setSearchTerms={setSearchTerms}
-        setCountries={setCountries}
-      />
-
       <div className="card_wrapper">
         {countries.length <= 0 ? (
           <Spinner />
         ) : (
-          countries
-            .filter((country) =>
-              country.name.common.toLowerCase().includes(searchTerms)
-            )
-            .map((country) => <Card key={country.name.common} card={country} />)
+          <>
+            <SearchAndSelectBar
+              value={searchTerms}
+              setSearchTerms={setSearchTerms}
+              setCountries={setCountries}
+            />
+            {countries
+              .filter((country) =>
+                country.name.common.toLowerCase().includes(searchTerms)
+              )
+              .map((country) => (
+                <Card key={country.name.common} card={country} />
+              ))}
+          </>
         )}
       </div>
     </>
