@@ -25,16 +25,17 @@ This project was building with [Create React App](https://github.com/facebook/cr
 
 - Download this project or `git clone`
 - Run command `npm i`
+- Run `npm start`
 - Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 
 ### `Technical stack`:
 
-- :sunglasses: Use Create React App (CRA)
+- :sunglasses: Create React App (CRA)
 - :fire: React
 - :banana: Typification - Type Script
 - :shoe: CodeStyle - ESLint, Prettier;
-- :love_hotel: City API - [https://restcountries.com/](https://restcountries.com/) ,
+- :love_hotel: City API - [https://restcountries.com/](https://restcountries.com/)
 - :partly_sunny: Weather API - [http://api.weatherapi.com/](http://api.weatherapi.com/)
 - :dress: Styling - SCSS
