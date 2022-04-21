@@ -32,9 +32,6 @@ body {
   color: #464141;
 }
 
-.container {
-  border-bottom: #fff 2px ridge;
-}
 
 .pagination {
   margin-top: 45px;
@@ -66,25 +63,6 @@ body {
   width: 90%;
   margin: 0 auto;
 }
-
-.fade-enter,
-.fade-exit {
-  transition: transform 3000ms ease-out;
-}
-
-.fade-enter {
-  transform: translateX(100%);
-}
-
-.fade-exit {
-  transform: translateX(0%);
-}
-
-.fade-exit-active {
-  transform: translateX(-100%);
-}
-
-
 
 @media only screen and (min-width: $xxl) {
   .card_wrapper,

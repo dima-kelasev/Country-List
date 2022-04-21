@@ -3,14 +3,23 @@ import { Flag } from "./component/Flag";
 import "./styled.scss";
 import { BlockWithText } from "./component/BlockWithTextx";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { FlippedContext } from "../../Context/FlippedContext";
 
 interface CardProps {
   card: CountriesType;
 }
 
 export function Card({ card }: CardProps) {
+  const { isFlipped, setIsFlipped } = useContext(FlippedContext);
   return (
-    <Link to={`${card.cca3}`} className="card_preview">
+    <Link
+      to={`${card.cca3}`}
+      className="card_preview"
+      onClick={() => {
+        setIsFlipped(!isFlipped);
+      }}
+    >
       <Flag url={card.flags.svg} alt={card.name.common} />
 
       <div className="country_description">

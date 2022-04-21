@@ -3,6 +3,10 @@ import APIWeather from "../utils/api/weatherAPI";
 import API from "../utils/api/index";
 import { APIKEY } from "../constants";
 
+export function noop(...args: unknown[]): void {
+  // Do nothing
+}
+
 export function generatePolylineArray(arrayX: number[], arrayY?: number[]) {
   let polyline = "";
   arrayX.map((coordX, i) => (polyline += `${coordX}, ${arrayY?.[i]}, `));

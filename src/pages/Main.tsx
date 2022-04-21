@@ -6,6 +6,7 @@ import { SearchAndSelectBar } from "../components/SerachAndSelectBar.tsx";
 import { Spinner } from "../components/Spinner";
 
 import "../style/index.scss";
+import "./style.scss";
 
 export function Main() {
   const [countries, setCountries] = useState<CountriesType[]>([]);
@@ -21,7 +22,7 @@ export function Main() {
   }, []);
 
   return (
-    <>
+    <div className="card_front">
       <div className="card_wrapper">
         {countries.length <= 0 ? (
           <Spinner />
@@ -42,6 +43,10 @@ export function Main() {
           </>
         )}
       </div>
-    </>
+
+      {/* <Link  to="/USA">
+        <h1>FRONT</h1>
+      </Link> */}
+    </div>
   );
 }
