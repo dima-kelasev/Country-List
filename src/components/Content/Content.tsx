@@ -1,4 +1,4 @@
-import { Redirect, Route, useHistory } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { Main } from "../../pages/Main";
 import { CountryPage } from "../../pages/CountryPage";

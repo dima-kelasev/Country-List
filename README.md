@@ -39,3 +39,7 @@ The page will reload when you make changes.\
 - :love_hotel: City API - [https://restcountries.com/](https://restcountries.com/)
 - :partly_sunny: Weather API - [http://api.weatherapi.com/](http://api.weatherapi.com/)
 - :dress: Styling - SCSS
+
+# Git-Hub Pages
+
+[link: Todo like Trello](https://dima-kelasev.github.io/Country-List/)
