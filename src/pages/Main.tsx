@@ -43,10 +43,6 @@ export function Main() {
           </>
         )}
       </div>
-
-      {/* <Link  to="/USA">
-        <h1>FRONT</h1>
-      </Link> */}
     </div>
   );
 }
