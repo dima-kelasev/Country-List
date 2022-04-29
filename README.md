@@ -42,4 +42,4 @@ The page will reload when you make changes.\
 
 # Git-Hub Pages
 
-[link: Todo like Trello](https://dima-kelasev.github.io/Country-List/)
+[Country-List](https://dima-kelasev.github.io/Country-List/)
