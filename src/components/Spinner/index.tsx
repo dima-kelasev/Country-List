@@ -1,5 +1,9 @@
 import "./styles.scss";
 
 export function Spinner() {
-  return <div className="loader">Loading...</div>;
+  return (
+    <div className="earth_wrapper">
+      <div id="earth"></div>
+    </div>
+  );
 }
