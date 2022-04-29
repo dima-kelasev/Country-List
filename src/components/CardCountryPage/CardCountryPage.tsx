@@ -39,7 +39,10 @@ export function CardCountryPage({
           <Button
             onClick={() => {
               history.goBack();
-              setIsFlipped(!isFlipped);
+              if (pathname.length <= 4) {
+                setIsFlipped(!isFlipped);
+              }
+              setFlippedPage(!flippedPage);
             }}
             text="Back"
           />
