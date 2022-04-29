@@ -28,10 +28,7 @@ export function DescriptionCountryBlock({
         </div>
         <div>
           <Text title="Capital" text={country?.capital} />
-          <Text
-            title="Top Level Domain"
-            text={country?.tld?.map((name) => name)}
-          />
+          <Text title="Top Level Domain" text={country?.tld?.[0]} />
           <Text title="Language" text={country?.languages.grn} />
         </div>
       </div>
