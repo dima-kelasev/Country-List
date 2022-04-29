@@ -5,10 +5,14 @@ import { Text } from "./Text";
 
 interface DescriptionCountryBlockProps {
   country?: CountriesType;
+  flippedPage: boolean;
+  setFlippedPage: (value: boolean) => void;
 }
 
 export function DescriptionCountryBlock({
   country,
+  setFlippedPage,
+  flippedPage,
 }: DescriptionCountryBlockProps) {
   const { pathname } = useLocation();
 
@@ -26,7 +30,6 @@ export function DescriptionCountryBlock({
           <Text title="Capital" text={country?.capital} />
           <Text
             title="Top Level Domain"
-            // @ts-ignore: Unreachable code error
             text={country?.tld?.map((name) => name)}
           />
           <Text title="Language" text={country?.languages.grn} />
@@ -38,7 +41,10 @@ export function DescriptionCountryBlock({
         <div className="borders_block">
           {country?.borders?.map((country) => (
             <div key={country} className="border_box">
-              <Link to={`${pathname}/${country}`}>
+              <Link
+                to={`${pathname}/${country}`}
+                onClick={() => setFlippedPage(!flippedPage)}
+              >
                 <Button text={country} />
               </Link>
             </div>

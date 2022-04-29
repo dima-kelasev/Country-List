@@ -5,9 +5,15 @@ import "./style.scss";
 
 interface BreadCrumbsProps {
   crumbs: string;
+  isFlippedPage: boolean;
+  setIsFlippedPage: (value: boolean) => void;
 }
 
-export function BreadCrumbs({ crumbs }: BreadCrumbsProps) {
+export function BreadCrumbs({
+  crumbs,
+  isFlippedPage,
+  setIsFlippedPage,
+}: BreadCrumbsProps) {
   const { pathname } = useLocation();
   const crumbsLink = crumbs.split("/");
   const { isFlipped, setIsFlipped } = useContext(FlippedContext);
@@ -22,7 +28,12 @@ export function BreadCrumbs({ crumbs }: BreadCrumbsProps) {
         HOME
       </Link>
       {crumbsLink.map((crumbs) => (
-        <Link key={crumbs} className="crumbs" to={`${pathname}/${crumbs}`}>
+        <Link
+          key={crumbs}
+          onClick={() => setIsFlippedPage(!isFlippedPage)}
+          className="crumbs"
+          to={`${pathname}/${crumbs}`}
+        >
           {crumbs}/
         </Link>
       ))}

@@ -1,28 +1,23 @@
-import { useState, useEffect, useContext } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import { DescriptionCountryBlock } from "../components/DescriptionCountryBlock";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Spinner } from "../components/Spinner";
 import { CountriesType, WeatherType } from "../types";
 import API from "../utils/api/index";
 import { CapitalList, fetchCapitalData } from "../utils/index";
-import { Button } from "../components/Button";
-import { BreadCrumbs } from "../components/BreadCrumb";
-import { LineChart } from "../components/LineChart";
-import { Capitals } from "../components/Capitals";
-import { FlippedContext } from "../Context/FlippedContext";
+import { CSSTransition } from "react-transition-group";
 
 import "../components/DescriptionCountryBlock/style.scss";
 import "./style.scss";
+import "./flipStyles.scss";
+import { CardCountryPage } from "../components/CardCountryPage/CardCountryPage";
 
 export function CountryPage(): JSX.Element {
   const [data, setData] = useState<CountriesType[]>();
   const [capitals, setCapitals] = useState<string[]>([]);
   const [capitalData, setCapitalData] = useState<WeatherType[]>([]);
-  const { isFlipped, setIsFlipped } = useContext(FlippedContext);
+  const [flippedPage, setFlippedPage] = useState(false);
 
   const { pathname } = useLocation();
-
-  const history = useHistory();
 
   const countryCode = pathname.split("/").slice(-1).toString();
 
@@ -57,28 +52,35 @@ export function CountryPage(): JSX.Element {
 
   return (
     <div className="card_back">
-      <div className="">
-        <BreadCrumbs crumbs={pathname} />
-        <div className="button_box">
-          <Button
-            onClick={() => {
-              history.goBack();
-              setIsFlipped(!isFlipped);
-            }}
-            text="Back"
-          />
+      <div className="card-container">
+        <div className="card-button">
+          <CSSTransition
+            in={!flippedPage}
+            timeout={1000}
+            classNames="front-face-transition"
+          >
+            <CardCountryPage
+              setFlippedPage={setFlippedPage}
+              flippedPage={flippedPage}
+              className="front"
+              country={country}
+              capitalData={capitalData}
+            />
+          </CSSTransition>
+          <CSSTransition
+            in={flippedPage}
+            timeout={1000}
+            classNames="back-face-transition"
+          >
+            <CardCountryPage
+              setFlippedPage={setFlippedPage}
+              flippedPage={flippedPage}
+              className="back"
+              country={country}
+              capitalData={capitalData}
+            />
+          </CSSTransition>
         </div>
-
-        <div className="country_display">
-          <img
-            className="main_flag"
-            src={country?.flags.svg}
-            alt={country?.name.common}
-          />
-          <DescriptionCountryBlock country={country} />
-        </div>
-        <LineChart capital={country?.capital} />
-        <Capitals capitals={capitalData} />
       </div>
     </div>
   );
