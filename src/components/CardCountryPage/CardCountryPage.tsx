@@ -41,6 +41,7 @@ export function CardCountryPage({
               history.goBack();
               if (pathname.length <= 4) {
                 setIsFlipped(!isFlipped);
+                history.push("/");
               }
               setFlippedPage(!flippedPage);
             }}

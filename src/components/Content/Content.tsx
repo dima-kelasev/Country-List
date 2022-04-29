@@ -1,12 +1,13 @@
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, useHistory } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { Main } from "../../pages/Main";
 import { CountryPage } from "../../pages/CountryPage";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FlippedContext } from "../../Context/FlippedContext";
 
 export function Content() {
   const { isFlipped } = useContext(FlippedContext);
+  const history = useHistory();
 
   const routes = [
     {
@@ -14,20 +15,22 @@ export function Content() {
       Component: <Main />,
       className: "front",
       flip: !isFlipped,
-      exact: true,
     },
     {
       path: "/:id",
       Component: <CountryPage />,
       className: "back",
       flip: isFlipped,
-      exact: false,
     },
   ];
 
+  useEffect(() => {
+    history.push("/");
+  }, []);
+
   return (
     <div className="container">
-      {routes.map(({ path, Component, className, flip, exact }) => (
+      {routes.map(({ path, Component, className, flip }) => (
         <Route key={path} exact path={path}>
           {() => (
             <CSSTransition
