@@ -45,9 +45,7 @@ export async function CapitalList(setCapitals: (value: string[]) => void) {
     const data = res.data;
     if (data) {
       const random = getRandomBoats(data, 5);
-      const randomCapital: string[] = random.map(({ capital }) =>
-        capital.toString()
-      );
+      const randomCapital: string[] = random.map(({ capital }) => capital);
 
       setCapitals(randomCapital);
     }

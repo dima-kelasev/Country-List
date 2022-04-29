@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { FlippedContext } from "../../Context/FlippedContext";
 import { CountriesType, WeatherType } from "../../types";
@@ -23,9 +23,32 @@ export function CardCountryPage({
   capitalData,
   className,
 }: CardCountryPageProps) {
+  const [locationKeys, setLocationKeys] = useState<(string | undefined)[]>([]);
   const { isFlipped, setIsFlipped } = useContext(FlippedContext);
   const history = useHistory();
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    return history.listen((location) => {
+      if (history.action === "PUSH") {
+        if (location.key) setLocationKeys([location.key]);
+      }
+
+      if (history.action === "POP") {
+        if (locationKeys[1] === location.key) {
+          setLocationKeys(([_, ...keys]) => keys);
+          setFlippedPage(!flippedPage);
+        } else {
+          setLocationKeys((keys) => [location.key, ...keys]);
+          if (pathname.length <= 4) {
+            setIsFlipped(!isFlipped);
+            history.push("/");
+          }
+          setFlippedPage(!flippedPage);
+        }
+      }
+    });
+  }, [locationKeys]);
 
   return (
     <div className={`pageCountry-${className}`}>
@@ -39,11 +62,9 @@ export function CardCountryPage({
           <Button
             onClick={() => {
               history.goBack();
-              if (pathname.length <= 4) {
-                setIsFlipped(!isFlipped);
-                history.push("/");
+              if (pathname.length > 4) {
+                setFlippedPage(!flippedPage);
               }
-              setFlippedPage(!flippedPage);
             }}
             text="Back"
           />
