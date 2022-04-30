@@ -22,6 +22,10 @@ export function BreadCrumbs({
     setIsFlipped(!isFlipped);
   };
 
+  const onFlipPage = () => {
+    setIsFlippedPage(!isFlippedPage);
+  };
+
   return (
     <div className="crumbs_box">
       <Link className="crumbs" to="/" onClick={onFlip}>
@@ -30,7 +34,7 @@ export function BreadCrumbs({
       {crumbsLink.map((crumbs) => (
         <Link
           key={crumbs}
-          onClick={() => setIsFlippedPage(!isFlippedPage)}
+          onClick={onFlipPage}
           className="crumbs"
           to={`${pathname}/${crumbs}`}
         >
