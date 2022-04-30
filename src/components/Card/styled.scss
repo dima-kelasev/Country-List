@@ -43,6 +43,8 @@ $bgDesc: #474a50;
         font-weight: 300;
         color: $TextColor;
         opacity: 0.7;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
 
@@ -57,6 +59,7 @@ $bgDesc: #474a50;
     .text_display {
       display: flex;
       width: 70%;
+      white-space: nowrap;
     }
   }
 }
