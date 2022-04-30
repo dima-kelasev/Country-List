@@ -35,7 +35,8 @@ export function DescriptionCountryBlock({
               (country?.languages.grn && country?.languages.grn) ||
               (country?.languages.spa && country?.languages.spa) ||
               (country?.languages.aym && country?.languages.aym) ||
-              (country?.languages.que && country?.languages.que)
+              (country?.languages.que && country?.languages.que) ||
+              (country?.languages.isl && country?.languages.isl)
             }
           />
         </div>

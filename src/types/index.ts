@@ -31,6 +31,7 @@ interface LanguagesType {
   spa: string;
   aym: string;
   que: string;
+  isl: string;
 }
 
 export type CountriesType = {
