@@ -35,7 +35,9 @@ export function Main() {
             />
             {countries
               .filter((country) =>
-                country.name.common.toLowerCase().includes(searchTerms)
+                country.name.common
+                  .toLowerCase()
+                  .includes(searchTerms.toLowerCase())
               )
               .map((country) => (
                 <Card key={country.name.common} card={country} />
