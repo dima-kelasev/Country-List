@@ -29,6 +29,8 @@ interface CurrenciesName {
 interface LanguagesType {
   grn: string;
   spa: string;
+  aym: string;
+  que: string;
 }
 
 export type CountriesType = {

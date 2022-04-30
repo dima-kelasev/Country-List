@@ -29,7 +29,15 @@ export function DescriptionCountryBlock({
         <div>
           <Text title="Capital" text={country?.capital} />
           <Text title="Top Level Domain" text={country?.tld?.[0]} />
-          <Text title="Language" text={country?.languages.grn} />
+          <Text
+            title="Language"
+            text={
+              (country?.languages.grn && country?.languages.grn) ||
+              (country?.languages.spa && country?.languages.spa) ||
+              (country?.languages.aym && country?.languages.aym) ||
+              (country?.languages.que && country?.languages.que)
+            }
+          />
         </div>
       </div>
 
