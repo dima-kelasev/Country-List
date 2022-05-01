@@ -7,6 +7,7 @@ import { Spinner } from "../Spinner";
 
 import "./style.scss";
 import { CurrentForecast } from "./CurrentForecast";
+import { LineChartSpinner } from "../Spinner/LineChartSpinner";
 
 interface LineChartProps {
   capital?: string;
@@ -67,7 +68,7 @@ export function LineChart({ capital }: LineChartProps) {
             <p className="description">temperature °</p>
           </div>
         ) : (
-          <Spinner />
+          <LineChartSpinner />
         )}
       </div>
     </>
