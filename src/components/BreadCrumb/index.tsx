@@ -26,9 +26,16 @@ export function BreadCrumbs({
     setIsFlippedPage(!isFlippedPage);
   };
 
+  console.log(crumbsLink);
+
   return (
     <div className="crumbs_box" data-testid="test-bread-crumbs">
-      <Link className="crumbs" to="/" onClick={onFlip}>
+      <Link
+        className="crumbs"
+        to="/"
+        onClick={onFlip}
+        data-testid="test-home-link-bread-crumbs"
+      >
         HOME/
       </Link>
       {crumbsLink.map((crumbs) => (
