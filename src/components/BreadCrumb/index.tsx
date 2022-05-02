@@ -15,7 +15,7 @@ export function BreadCrumbs({
   setIsFlippedPage,
 }: BreadCrumbsProps) {
   const { pathname } = useLocation();
-  const crumbsLink = crumbs.split("/");
+  const crumbsLink = crumbs.split("/").slice(1);
   const { isFlipped, setIsFlipped } = useContext(FlippedContext);
 
   const onFlip = () => {
@@ -29,7 +29,7 @@ export function BreadCrumbs({
   return (
     <div className="crumbs_box" data-testid="test-bread-crumbs">
       <Link className="crumbs" to="/" onClick={onFlip}>
-        HOME
+        HOME/
       </Link>
       {crumbsLink.map((crumbs) => (
         <Link
@@ -37,6 +37,7 @@ export function BreadCrumbs({
           onClick={onFlipPage}
           className="crumbs"
           to={`${pathname}/${crumbs}`}
+          data-testid="test-link-bread-crumbs"
         >
           {crumbs}/
         </Link>
