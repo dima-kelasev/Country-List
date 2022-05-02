@@ -1,7 +1,6 @@
 import { screen, waitFor } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 import { render } from "@testing-library/react";
-import { userInfo } from "os";
 import { MemoryRouter } from "react-router-dom";
 
 import { BreadCrumbs } from "./index";
