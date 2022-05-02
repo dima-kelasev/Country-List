@@ -27,7 +27,7 @@ export function BreadCrumbs({
   };
 
   return (
-    <div className="crumbs_box">
+    <div className="crumbs_box" data-testid="test-bread-crumbs">
       <Link className="crumbs" to="/" onClick={onFlip}>
         HOME
       </Link>
