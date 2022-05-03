@@ -19,15 +19,28 @@ export function Card({ card }: CardProps) {
       onClick={() => {
         setIsFlipped(!isFlipped);
       }}
+      data-testid="test-card"
     >
       <Flag url={card.flags.svg} alt={card.name.common} />
 
       <div className="country_description">
         <p className="name_preview">{card.name.common}</p>
         <div className="description_preview">
-          <BlockWithText title="Population" subtitle={card.population} />
-          <BlockWithText title="Region" subtitle={card.region} />
-          <BlockWithText title="Capital" subtitle={card.capital} />
+          <BlockWithText
+            data-testid="test-title-population"
+            title="Population"
+            subtitle={card.population}
+          />
+          <BlockWithText
+            data-testid="test-title-region"
+            title="Region"
+            subtitle={card.region}
+          />
+          <BlockWithText
+            data-testid="test-title-capital"
+            title="Capital"
+            subtitle={card.capital}
+          />
         </div>
       </div>
     </Link>

@@ -6,5 +6,12 @@ interface FlagProps {
 }
 
 export function Flag({ url, alt }: FlagProps) {
-  return <img className="flag_preview" src={url} alt={alt} />;
+  return (
+    <img
+      data-testid="test-img-flag"
+      className="flag_preview"
+      src={url}
+      alt={alt}
+    />
+  );
 }
