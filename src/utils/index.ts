@@ -13,7 +13,7 @@ export function generatePolylineArray(arrayX: number[], arrayY?: number[]) {
   return polyline;
 }
 
-export const getRandomBoats = (
+export const getRandomCapitals = (
   arr: CountriesType[],
   length: number
 ): CountriesType[] => {
@@ -44,7 +44,7 @@ export async function CapitalList(setCapitals: (value: string[]) => void) {
   const result = await API.get("all").then((res) => {
     const data = res.data;
     if (data) {
-      const random = getRandomBoats(data, 5);
+      const random = getRandomCapitals(data, 5);
       const randomCapital: string[] = random.map(({ capital }) => capital);
 
       setCapitals(randomCapital);
