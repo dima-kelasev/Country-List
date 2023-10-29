@@ -1,19 +1,20 @@
-import { useState, useEffect } from "react";
-import { Card } from "../components/Card/Card";
-import { CountriesType } from "../types";
-import API from "../utils/api/index";
-import { SearchAndSelectBar } from "../components/SerachAndSelectBar.tsx";
-import { Spinner } from "../components/Spinner";
+import { useState, useEffect } from 'react';
+import { Card } from '../components/Card/Card';
+import { CountriesType } from '../types';
+import API from '../utils/api/index';
+import { SearchAndSelectBar } from '../components/SerachAndSelectBar.tsx';
+import { Spinner } from '../components/Spinner';
 
-import "../style/index.scss";
-import "./style.scss";
+import '../style/index.scss';
+import './style.scss';
 
 export function Main() {
   const [countries, setCountries] = useState<CountriesType[]>([]);
-  const [searchTerms, setSearchTerms] = useState<string>("");
+  const [searchTerms, setSearchTerms] = useState<string>('');
+  console.log('call');
 
   useEffect(() => {
-    API.get("all")
+    API.get('all')
       .then((res) => {
         const data = res.data;
         setCountries(data);
